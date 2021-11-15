@@ -6,5 +6,5 @@ Der Import erfolgt über die Verzeichnisüberwachung (ein Import über die Progr
 
 Der Aufbau der XML-Datei muss dem Schema DFNKImport.xsd entsprechen. Für einen erfolgreichen Import müssen die entsprechenden Nummer-Felder (LV-Nr, Positions-Nr und Stammdatensatz-Nummern) einem Datensatz im DATAflor BUSINESS entsprechen. 
 
-Wenn ein Datensatz nicht zugeordnet werden kann, wird die komplette Datei nicht importiert! Die importierte Datei wird dann (zusammen mit einer Fehlerbeschreibungsdatei, die den gefundenen Fehler beschreibt) in das Verzeichnis BusinessData\Inbox Files\failed (in der BUSINESS-Freigabe auf dem Server) verschoben.
+Wenn ein Datensatz nicht zugeordnet werden kann oder sonstige Fehler enthält, wird die komplette Datei nicht importiert! Die importierte Datei wird dann (zusammen mit einer Fehlerbeschreibungsdatei, die den gefundenen Fehler beschreibt) in das Verzeichnis BusinessData\Inbox Files\failed (in der BUSINESS-Freigabe auf dem Server) verschoben.
 
