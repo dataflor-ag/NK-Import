@@ -3,7 +3,7 @@
 Ab der DATAflor Business Version 2022 unterstützt der Digitale Posteingang den Import von Nachkalkulationsdaten in das DATAflor BUSINESS.
 
 Der Import erfolgt über die Verzeichnisüberwachung (ein Import über die Programmoberfläche wird nicht unterstützt) und verwendet als Dateiformat XML.
-Der Dateiname der Importdatei spielt keine Rolle, die Dateiendung muss allerdings .xml sein.
+Der Dateiname der Importdatei spielt keine Rolle, die Dateiendung muss allerdings .xml sein. Das Encoding der Datei muss UTF-8 sein.
 
 Der Aufbau der XML-Datei muss dem Schema DFNKImport.xsd entsprechen. Für einen erfolgreichen Import müssen die entsprechenden Nummer-Felder (LV-Nr, Positions-Nr und Stammdatensatz-Nummern) einem Datensatz im DATAflor BUSINESS entsprechen. 
 
