@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DFNKImport" targetNamespace="http://tempuri.org/DFNKImport1.xsd" elementFormDefault="qualified" xmlns="http://tempuri.org/DFNKImport1.xsd" xmlns:mstns="http://tempuri.org/DFNKImport1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" id="DFNKImport">
 	<xs:element name="DFNKImport" type="dfNKImportType"/>
 	<xs:complexType name="dfNKImportType">
 		<xs:annotation>
@@ -25,14 +25,14 @@
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name ="nkBaseType">
+	<xs:complexType name="nkBaseType">
 		<xs:annotation>
 			<xs:documentation>Basistyp eines NK-Datensatzes</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Kennung" type="xs:string" minOccurs="0" >
+			<xs:element name="Kennung" type="xs:string" minOccurs="0">
 				<xs:annotation>
-					<xs:documentation>Kennung der ausgebenen Software. Wird vom BUSINESS nicht verwendet, wird nur in den Fehlermeldungen mit ausgegeben.</xs:documentation>
+					<xs:documentation>Kennung der ausgebenden Software. Wird vom DATAflor BUSINESS nicht verwendet, wird nur in den Fehlermeldungen mit ausgegeben.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Datum" type="xs:date">
@@ -51,40 +51,45 @@
 				</xs:annotation>
 				<xs:element name="PosNr" type="positionNummerType" minOccurs="0">
 					<xs:annotation>
-						<xs:documentation>Nummer des Position</xs:documentation>
+						<xs:documentation>Nummer der Position</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="IstTaglohn" type="xs:boolean" minOccurs="0" >
+				<xs:element name="IstTaglohn" type="xs:boolean" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Soll der Buchungssatz als Taglohn verbucht werden</xs:documentation>
 					</xs:annotation>
 				</xs:element>
 			</xs:choice>
-			<xs:element name="Bemerkung" type="string60Type" minOccurs="0" >
+			<xs:element name="Bemerkung" type="string60Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Bemerkung zur NK-Buchung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ErfasstVon" type="string60Type" minOccurs="0" >
+			<xs:element name="ErfasstVon" type="string60Type" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Name des Erfassers der Buchung</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="IdKatalog" type="string15Type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>ID des zugehörigen Materialkatalogs</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name = "lohnType">
+	<xs:complexType name="lohnType">
 		<xs:annotation>
 			<xs:documentation>Lohndatensatz</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="nkBaseType">
 				<xs:sequence>
-					<xs:element name="PersonalNr" type="xs:string" >
+					<xs:element name="PersonalNr" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>Personalnummer des Mitarbeiters. Muss einem im BUSINESS definierten Mitarbeiter eindeutig identifizieren.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Lohnart" type="xs:integer" >
+					<xs:element name="Lohnart" type="xs:integer">
 						<xs:annotation>
 							<xs:documentation>Eine in DATAflor BUSINESS definierte Lohnartennummer</xs:documentation>
 						</xs:annotation>
@@ -93,23 +98,23 @@
 						<xs:annotation>
 							<xs:documentation>Detailierte Zeitinformationen. Es müssen entweder alle drei Elemente vorhandein oder gar keins.</xs:documentation>
 						</xs:annotation>
-						<xs:element name="von" type="xs:time" >
+						<xs:element name="von" type="xs:time">
 							<xs:annotation>
 								<xs:documentation>Format hh:mm</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="bis" type="xs:time" >
+						<xs:element name="bis" type="xs:time">
 							<xs:annotation>
 								<xs:documentation>Format hh:mm</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Pause" type="xs:float" >
+						<xs:element name="Pause" type="xs:float">
 							<xs:annotation>
 								<xs:documentation>Anzahl der Pausenstunden</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
-					<xs:element name="Stunden" type="xs:float" >
+					<xs:element name="Stunden" type="xs:float">
 						<xs:annotation>
 							<xs:documentation>Anzahl der Stunden die verbucht werden sollen. Anzugeben im Dezimalsystem (z.B. 0.5 => entspricht 30 Minuten ).</xs:documentation>
 						</xs:annotation>
@@ -120,12 +125,12 @@
 						</xs:annotation>
 						<xs:complexType>
 							<xs:sequence>
-								<xs:element name="Lohnart" type="xs:integer" >
+								<xs:element name="Lohnart" type="xs:integer">
 									<xs:annotation>
 										<xs:documentation>Eine in DATAflor BUSINESS definierte Lohnartennummer</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="Stunden" type="xs:float" >
+								<xs:element name="Stunden" type="xs:float">
 									<xs:annotation>
 										<xs:documentation>Anzahl der Stunden die verbucht werden sollen. Anzugeben im Dezimalsystem (z.B. 0.5 => entspricht 30 Minuten ).</xs:documentation>
 									</xs:annotation>
@@ -133,18 +138,18 @@
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="ZzglZeit" maxOccurs="1" minOccurs="0">
+					<xs:element name="ZzglZeit" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>Gegenwärtig nicht unterstützt!</xs:documentation>
 						</xs:annotation>
 						<xs:complexType>
 							<xs:sequence>
-								<xs:element name="Lohnart" type="xs:integer" >
+								<xs:element name="Lohnart" type="xs:integer">
 									<xs:annotation>
 										<xs:documentation>Eine in DATAflor BUSINESS definierte Lohnartennummer</xs:documentation>
 									</xs:annotation>
 								</xs:element>
-								<xs:element name="Stunden" type="xs:float" >
+								<xs:element name="Stunden" type="xs:float">
 									<xs:annotation>
 										<xs:documentation>Anzahl der Stunden die verbucht werden sollen. Anzugeben im Dezimalsystem (z.B. 0.5 => entspricht 30 Minuten ).</xs:documentation>
 									</xs:annotation>
@@ -152,7 +157,7 @@
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="IstTerminabrechnung" type="xs:boolean" minOccurs="0" >
+					<xs:element name="IstTerminabrechnung" type="xs:boolean" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Soll für das Datum der Buchung ein Abrechnungstermin angelegt werden. Darf nicht true sein wenn IstTaglohn true ist.</xs:documentation>
 						</xs:annotation>
@@ -161,12 +166,12 @@
 						<xs:annotation>
 							<xs:documentation>Diese Daten müssen vorhanden sein, wenn die LVNr Gerät-01-0001 ist und es somit eine Lohnbuchung auf ein Gerät ist</xs:documentation>
 						</xs:annotation>
-						<xs:element name="GeraeteNr" type="geraeteNummerType" >
+						<xs:element name="GeraeteNr" type="geraeteNummerType">
 							<xs:annotation>
 								<xs:documentation>Nummer des Gerätes. Es muss sich um ein im BUSINESS definiertes Gerät handeln.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Geraetekostenart" type="xs:string" >
+						<xs:element name="Geraetekostenart" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>Im Business definierte Kostenart für die das Gerät bebucht werden soll</xs:documentation>
 							</xs:annotation>
@@ -183,12 +188,12 @@
 		<xs:complexContent>
 			<xs:extension base="nkBaseType">
 				<xs:sequence>
-					<xs:element name="GeraeteNr" type="geraeteNummerType" >
+					<xs:element name="GeraeteNr" type="geraeteNummerType">
 						<xs:annotation>
 							<xs:documentation>Nummer des Gerätes. Es muss sich um ein im BUSINESS definiertes Gerät handeln.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Stunden" type="xs:float" >
+					<xs:element name="Stunden" type="xs:float">
 						<xs:annotation>
 							<xs:documentation>Anzahl der Stunden die verbucht werden sollen. Anzugeben im Dezimalsystem (z.B 0.5 => entspricht 30 Minuten ).</xs:documentation>
 						</xs:annotation>
@@ -214,14 +219,14 @@
 							<xs:documentation>Materialbezeichnung</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Menge" type="xs:float" />
-					<xs:element name="Mengeneinheit" type="mengeneinheitType" />
-					<xs:element name="Einzelpreis" type="xs:float" minOccurs="0" >
+					<xs:element name="Menge" type="xs:float"/>
+					<xs:element name="Mengeneinheit" type="mengeneinheitType"/>
+					<xs:element name="Einzelpreis" type="xs:float" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Einzelpreis des Materials. Wenn weder der Einzelpreis nicht vorhanden ist, wird er mit 0 € angenommen</xs:documentation>
+							<xs:documentation>Einzelpreis des Materials. Wenn der Einzelpreis nicht vorhanden ist, wird er mit 0 € angenommen</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Kostenart" type="kostenartType" >
+					<xs:element name="Kostenart" type="kostenartType">
 						<xs:annotation>
 							<xs:documentation>Kostenart für die das Material verbucht werden soll</xs:documentation>
 						</xs:annotation>
@@ -233,19 +238,24 @@
 					</xs:element>
 					<xs:sequence minOccurs="0" maxOccurs="1">
 						<xs:annotation>
-							<xs:documentation>Diese Daten müssen vorhanden sein, wenn die LVNr Gerät-01-0001 ist und es somit eine Lohnbuchung auf ein Gerät ist</xs:documentation>
+							<xs:documentation>Diese Daten müssen vorhanden sein, wenn die LVNr Gerät-01-0001 ist und es somit eine Materialbuchung auf ein Gerät ist</xs:documentation>
 						</xs:annotation>
-						<xs:element name="GeraeteNr" type="geraeteNummerType" >
+						<xs:element name="GeraeteNr" type="geraeteNummerType">
 							<xs:annotation>
 								<xs:documentation>Nummer des Gerätes. Es muss sich um ein im BUSINESS definiertes Gerät handeln.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Geraetekostenart" type="xs:string" >
+						<xs:element name="Geraetekostenart" type="xs:string">
 							<xs:annotation>
 								<xs:documentation>Im Business definierte Kostenart für die das Gerät bebucht werden soll</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
+					<xs:element name="IdMaterial" type="string15Type" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>ID des zugehörigen Materialdatensatzes</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -280,6 +290,14 @@
 					<xs:documentation>Verbuchung als Pflanze</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="string15Type">
+		<xs:annotation>
+			<xs:documentation>ID-Feld mit max. 15 Zeichen</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="string60Type">
