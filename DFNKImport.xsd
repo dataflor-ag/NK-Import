@@ -214,11 +214,24 @@
 							<xs:documentation>Kreditorennummer des Lieferanten für dieses Material</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="Bezeichnung" type="string60Type">
+					<xs:choice>
 						<xs:annotation>
-							<xs:documentation>Materialbezeichnung</xs:documentation>
+							<xs:documentation>Entweder muss die ID des Materialdatensatzes angegeben werden oder die Materialbezeichnung. Ist IdMaterial gesetzt, so wird eine ggf. zusätzlich angegebene Bezeichnung ignoriert.</xs:documentation>
 						</xs:annotation>
-					</xs:element>
+						<xs:sequence>
+							<xs:element name="IdMaterial" type="string15Type" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>ID des zugehörigen Materialdatensatzes</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Bezeichnung" type="string60Type" minOccurs="0"/>
+						</xs:sequence>
+						<xs:element name="Bezeichnung" type="string60Type">
+							<xs:annotation>
+								<xs:documentation>Materialbezeichnung</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
 					<xs:element name="Menge" type="xs:float"/>
 					<xs:element name="Mengeneinheit" type="mengeneinheitType"/>
 					<xs:element name="Einzelpreis" type="xs:float" minOccurs="0">
@@ -251,11 +264,6 @@
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
-					<xs:element name="IdMaterial" type="string15Type" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>ID des zugehörigen Materialdatensatzes</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
