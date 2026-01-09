@@ -198,11 +198,6 @@
 							<xs:documentation>Anzahl der Stunden die verbucht werden sollen. Anzugeben im Dezimalsystem (z.B 0.5 => entspricht 30 Minuten ).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="IstTagessatz" type="xs:boolean" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Soll für das Gerät der Tagessatz verbucht werden. Wenn der Tagessatz verwendet wird, werden die Stunden ignoriert und durch 1 ersetzt.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -269,6 +264,11 @@
 							</xs:annotation>
 						</xs:element>
 					</xs:sequence>
+					<xs:element name="IstAbrechnungNachGeliefertenMengen" type="xs:boolean" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Abrechnung nach gelieferten Mengen</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
