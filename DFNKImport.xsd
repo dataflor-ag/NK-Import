@@ -303,7 +303,7 @@
 					<xs:documentation>Verbuchung als Entsorgung</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Pflanze">
+			<xs:enumeration value="Pflanzen">
 				<xs:annotation>
 					<xs:documentation>Verbuchung als Pflanze</xs:documentation>
 				</xs:annotation>
